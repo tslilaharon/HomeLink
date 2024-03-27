@@ -4,7 +4,9 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import About from './pages/About'
 import BusinessProfile from './pages/BusinessProfile'
+import Search from './pages/Search'
 import EditBusinessProfile from './pages/EditBusinessProfile'
+
 import Header from './components/Header'
 import PrivateRoute from './components/PrivateRoute';
 
@@ -18,9 +20,10 @@ export const App = () => {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search/>} />
         <Route element={<PrivateRoute />} >
           <Route path="/business-profile" element={<BusinessProfile />} />
-          <Route path="/edit-business-profile" element={<BusinessProfile />} />
+          <Route path="/edit-business-profile" element={<EditBusinessProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

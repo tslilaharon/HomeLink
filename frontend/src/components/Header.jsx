@@ -36,9 +36,13 @@ const Header = () => {
                         <LinkContainer to="/about">
                             <Nav.Link>About</Nav.Link>
                         </LinkContainer>
+
+                        <LinkContainer to="/search">
+                            <Nav.Link>Search </Nav.Link>
+                        </LinkContainer>
                     </Nav>
                     <NavbarText>
-                        <LinkContainer to="/profile">
+                        <LinkContainer to="/business-profile">
                             {currentUser ? (
                                 <Image src={currentUser.avatar}
                                     rounded
@@ -53,27 +57,6 @@ const Header = () => {
                         </LinkContainer>
 
                     </NavbarText>
-
-                    {/* 
-                    <NavDropdown title="Name" id="navbarScrollingDropdown">
-                            <NavDropdown.Item>My profile</NavDropdown.Item>
-                            <NavDropdown.Item>
-                                Settings
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item>
-                                Logout
-                            </NavDropdown.Item>
-                    </NavDropdown>
-                    <Form className="d-flex">
-                        <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-success">Search</Button>
-                    </Form> */}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

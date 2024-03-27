@@ -29,19 +29,69 @@
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .profile-section {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .profile-part {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(80, 80, 80, 0.24);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.profile-list {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(80, 80, 80, 0.24);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 4px;
+}
+.profile-text{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.list-row {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+}
+
+.list-row div {
+    margin: 20px;
+}
+
+.list-changes {
+    display: flex;
+    flex-direction: row;
+}
+
+.list-changes Button {
+    margin: 5px;
+}
+
+.list-row .list-img {
+    margin: 20px;
+}
+
+.list-labels Button {
+    margin: 5px;
 }
 
 .profile-image {
