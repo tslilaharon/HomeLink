@@ -105,12 +105,12 @@ const EditBusinessProfile = () => {
       const res = await fetch('/api/auth/signout');
       const data = await res.json();
       if (data.success === false) {
-        dispatch(signOutUserFailure(data.message));
+        dispatch(deleteUserFailure(data.message));
         return;
       }
-      dispatch(signOutUserSuccess(data));
+      dispatch(deleteUserSuccess(data));
     } catch (error) {
-      dispatch(signOutUserFailure(data.message));
+      dispatch(deleteUserFailure(data.message));
     }
   }
 
