@@ -32,7 +32,7 @@ const Header = () => {
                         <LinkContainer to="/">
                             <Nav.Link>Home</Nav.Link>
                         </LinkContainer>
-                        
+
                         <LinkContainer to="/search">
                             <Nav.Link>Search </Nav.Link>
                         </LinkContainer>
@@ -46,7 +46,7 @@ const Header = () => {
                         <LinkContainer to="/business-profile">
                             {currentUser ? (
                                 <Image src={currentUser.avatar}
-                                    rounded
+                                    roundedCircle
                                     width="40"
                                     height="40"
                                     alt='profile' />

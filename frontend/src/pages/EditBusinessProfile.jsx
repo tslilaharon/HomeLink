@@ -116,7 +116,7 @@ const EditBusinessProfile = () => {
 
   return (
     <Container>
-      <h1>Edit Profile</h1>
+      <h3>Edit Profile</h3>
       <Form onSubmit={handleSubmit}>
         <input onChange={(e) => setFile(e.target.files[0])}
           type="file" ref={fileRef} hidden accept='image/*' />
