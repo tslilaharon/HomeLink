@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, CardGroup, Button } from 'react-bootstrap';
+import PropertyCard from '../components/PropertyCard'
 import '../assets/styles/Style.css';
+
 
 const Home = () => {
   return (
@@ -21,11 +23,28 @@ const Home = () => {
       </section>
 
       <section className="most-popular mt-5">
-        <h2>Most Popular Properties</h2>
+        <div className="home-row">
+          <h2>Most Popular Properties</h2>
+          <Button variant="outline-dark" size="sm">See All</Button>
+        </div>
+        <CardGroup>
+          <PropertyCard />
+          <PropertyCard />
+          <PropertyCard />
+        </CardGroup>
+
       </section>
 
       <section className="most-recent mt-5">
-        <h2>Newest Properties</h2>
+        <div className="home-row">
+          <h2>Newest Properties</h2>
+          <Button variant="outline-dark" size="sm">See All</Button>
+        </div>
+        <CardGroup>
+          <PropertyCard />
+          <PropertyCard />
+          <PropertyCard />
+        </CardGroup>
       </section>
     </div>
   );

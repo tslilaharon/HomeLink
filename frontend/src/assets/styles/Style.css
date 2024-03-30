@@ -25,6 +25,14 @@
     font-size: 1.2rem;
 }
 
+a{
+    color: #173042;
+}
+/* 
+.btn .btn-dark{
+    background-color: #173042;
+} */
+
 .profile-container {
     margin-top: 20px;
     display: flex;
@@ -60,7 +68,10 @@
     display: flex;
     justify-content: space-between;
 }
-
+.home-row{
+    display: flex;
+    justify-content: space-between;
+}
 .list-header {
     display: flex;
     justify-content: space-between;

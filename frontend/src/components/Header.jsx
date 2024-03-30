@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <LinkContainer to="/home">
+                <LinkContainer to="/">
                     <Navbar.Brand>
                         <Image src={logo}
                             width="150"
@@ -29,17 +29,18 @@ const Header = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <LinkContainer to="/home">
+                        <LinkContainer to="/">
                             <Nav.Link>Home</Nav.Link>
                         </LinkContainer>
-
-                        <LinkContainer to="/about">
-                            <Nav.Link>About</Nav.Link>
-                        </LinkContainer>
-
+                        
                         <LinkContainer to="/search">
                             <Nav.Link>Search </Nav.Link>
                         </LinkContainer>
+
+                        <LinkContainer to="/business-profile">
+                            <Nav.Link>profile</Nav.Link>
+                        </LinkContainer>
+
                     </Nav>
                     <NavbarText>
                         <LinkContainer to="/business-profile">

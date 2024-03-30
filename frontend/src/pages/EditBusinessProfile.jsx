@@ -120,7 +120,11 @@ const EditBusinessProfile = () => {
       <Form onSubmit={handleSubmit}>
         <input onChange={(e) => setFile(e.target.files[0])}
           type="file" ref={fileRef} hidden accept='image/*' />
-        <Image onClick={() => fileRef.current.click()} src={formData.avatar || currentUser.avatar} roundedCircle alt="profile" width={"150px"} />
+        <Image onClick={() => fileRef.current.click()} src={formData.avatar || currentUser.avatar}
+          roundedCircle
+          alt="profile"
+          width="200"
+          height="200" />
         <p>
           {fileUploadError ?
             (<span>Error Image upload (image must be less than 2 mb)</span>) :
@@ -145,16 +149,16 @@ const EditBusinessProfile = () => {
           <Form.Control type="password" placeholder="Password" onChange={handleChange} />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="dark" type="submit">
           {loading ? 'Loading...' : 'Update'}
         </Button>
       </Form>
 
       <div>
-        <Button variant="primary" type="submit" onClick={handleDeleteUser}>
+        <Button variant="link" onClick={handleDeleteUser}>
           Delete account
         </Button>
-        <Button variant="primary" type="submit" onClick={handleSignOut}>
+        <Button variant="link" onClick={handleSignOut}>
           Sign out
         </Button>
       </div>
