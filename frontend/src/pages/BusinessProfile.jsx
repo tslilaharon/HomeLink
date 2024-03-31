@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropertyRowList from '../components/PropertyRowList'
-import { FaPenSquare, FaTrashAlt } from "react-icons/fa";
+import { FaRegEdit, FaRegClock, FaRegEnvelope } from "react-icons/fa";
 
 import '../assets/styles/Style.css';
 import { useSelector } from 'react-redux';
@@ -20,30 +20,30 @@ const BusinessProfile = () => {
                             height="60"
                             alt='profile' />
                     </div>
+
                     <div className="profile-details">
                         <div className="profile-text">
                             <h4>{currentUser.username}</h4>
                             <Link to={"/edit-business-profile"}>
-                                <FaPenSquare />
+                                <FaRegEdit />
                             </Link>
 
                         </div>
                         <p>{currentUser.email}</p>
                     </div>
-                    <div className="edit-icon">
+                </div>
+
+                <div className="profile-part">
+                    <div className="profile-link">
+                        <FaRegClock />
+                        <span>Order History</span>
                     </div>
                 </div>
+
                 <div className="profile-part">
-                    <div className="icon">
-                    </div>
-                    <div className="profile-details">
-                        <p>Order History</p>
-                    </div>
-                </div>
-                <div className="profile-part">
-                    <div className="icon"></div>
-                    <div className="profile-details">
-                        <p>Requests</p>
+                    <div className="profile-link">
+                        <FaRegEnvelope />
+                        <span>Requests</span>
                     </div>
                 </div>
             </div>
@@ -53,11 +53,9 @@ const BusinessProfile = () => {
                     <Button variant="dark">Add Property</Button>
                 </div>
                 <div className="list-body">
-                    <PropertyRowList/>
-                    <PropertyRowList/>
-                    <PropertyRowList/>
-                    <PropertyRowList/>
-
+                    <PropertyRowList />
+                    <PropertyRowList />
+                    <PropertyRowList />
                 </div>
             </div>
 

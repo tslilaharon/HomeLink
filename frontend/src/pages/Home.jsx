@@ -10,7 +10,7 @@ const Home = () => {
     <div className="">
       <section className="find-a-house">
         <div className="background-image">
-          <div className="content text-left">
+          <div className="content text-left m-3">
             <h2>Find A House</h2>
             <h2>That Suits You</h2>
             <p>
@@ -22,29 +22,29 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="most-popular mt-5">
+      <section className="most-popular m-5">
         <div className="home-row">
           <h2>Most Popular Properties</h2>
           <Button variant="outline-dark" size="sm">See All</Button>
         </div>
-        <CardGroup>
+        <div className="container-propertycard m-5">
           <PropertyCard />
           <PropertyCard />
           <PropertyCard />
-        </CardGroup>
+        </div>
 
       </section>
 
-      <section className="most-recent mt-5">
+      <section className="most-recent m-5">
         <div className="home-row">
           <h2>Newest Properties</h2>
           <Button variant="outline-dark" size="sm">See All</Button>
         </div>
-        <CardGroup>
+        <div className="container-propertycard m-5">
           <PropertyCard />
           <PropertyCard />
           <PropertyCard />
-        </CardGroup>
+        </div>
       </section>
     </div>
   );

@@ -115,9 +115,9 @@ const EditBusinessProfile = () => {
   }
 
   return (
-    <Container>
+    <Container className="edit-container">
       <h3>Edit Profile</h3>
-      <Form onSubmit={handleSubmit}>
+      <Form className="edit-Form" onSubmit={handleSubmit}>
         <input onChange={(e) => setFile(e.target.files[0])}
           type="file" ref={fileRef} hidden accept='image/*' />
         <Image onClick={() => fileRef.current.click()} src={formData.avatar || currentUser.avatar}
@@ -154,7 +154,7 @@ const EditBusinessProfile = () => {
         </Button>
       </Form>
 
-      <div>
+      <div className="edit-link">
         <Button variant="link" onClick={handleDeleteUser}>
           Delete account
         </Button>

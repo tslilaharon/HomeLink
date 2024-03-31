@@ -1,8 +1,8 @@
-import {Button, Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 
 const PropertyCard = () => {
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card className="m-5" style={{ width: '18rem' }}>
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
                 <Card.Title>Card Title</Card.Title>
@@ -10,9 +10,10 @@ const PropertyCard = () => {
                     Some quick example text to build on the card title and make up the
                     bulk of the card's content.
                 </Card.Text>
-                <Button variant="dark">Go somewhere</Button>
+                <Button variant="dark">more details</Button>
             </Card.Body>
-        </Card>)
+        </Card>
+    )
 }
 
 export default PropertyCard

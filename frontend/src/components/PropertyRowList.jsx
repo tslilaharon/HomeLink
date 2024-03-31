@@ -1,6 +1,8 @@
-import {Button, Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import '../assets/styles/Style.css';
-import { FaPenSquare, FaTrashAlt } from "react-icons/fa";
+import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
 
 const PropertyRowList = () => {
     return (
@@ -22,8 +24,12 @@ const PropertyRowList = () => {
                 <Button variant="outline-dark" size="sm" disabled >Pet</Button>
             </div>
             <div className="list-changes">
-                <Button variant="outline-dark"><FaPenSquare /></Button>
-                <Button variant="outline-dark"><FaTrashAlt /></Button>
+                <Link to={"/"}>
+                    <FaRegEdit />
+                </Link>
+                <Link to={"/"}>
+                    <FaRegTrashAlt />
+                </Link>
             </div>
 
         </div>

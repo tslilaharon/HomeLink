@@ -1,8 +1,14 @@
 .signup-form {
     margin: 10%;
     padding: 5%;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+
+a {
+    color: #173042;
+}
+
+/* Home */
 
 .background-image {
     width: 100%;
@@ -25,13 +31,8 @@
     font-size: 1.2rem;
 }
 
-a{
-    color: #173042;
-}
-/* 
-.btn .btn-dark{
-    background-color: #173042;
-} */
+
+/* Business Profile */
 
 .profile-container {
     margin-top: 20px;
@@ -42,36 +43,66 @@ a{
 
 .profile-section {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.profile-part:nth-child(1) {
+    width: 40%;
+}
+
+.profile-part:nth-child(2) {
+    width: 25%;
+}
+
+.profile-part:nth-child(3) {
+    width: 25%;
 }
 
 .profile-part {
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(80, 80, 80, 0.24);
-    margin: 20px;
+    box-shadow: rgba(192, 189, 189, 0.096) 0px 0px 0px 2px, rgba(6, 24, 44, 0.23) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    margin: 5px 20px;
     padding: 20px;
     border-radius: 4px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+}
+
+.profile-link span {
+    margin: 10px;
 }
 
 .profile-list {
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(80, 80, 80, 0.24);
+    box-shadow: rgba(192, 189, 189, 0.096) 0px 0px 0px 2px, rgba(6, 24, 44, 0.23) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    margin: 5px 20px;
     margin: 20px;
     padding: 20px;
     border-radius: 4px;
 }
-.profile-text{
-    width: 300px;
+
+.profile-text {
     display: flex;
     justify-content: space-between;
 }
-.home-row{
+
+.profile-details {
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+.home-row {
     display: flex;
     justify-content: space-between;
 }
+
 .list-header {
     display: flex;
     justify-content: space-between;
@@ -93,7 +124,7 @@ a{
     flex-direction: row;
 }
 
-.list-changes Button {
+.list-changes a {
     margin: 5px;
 }
 
@@ -104,19 +135,35 @@ a{
 .list-labels Button {
     margin: 5px;
 }
+/* property card */
 
-.profile-image {
-    /* Styling for profile image */
+.container-propertycard {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.profile-details {
-    flex-grow: 1;
-    padding: 0 20px;
+/* Edit Business Profile */
+
+
+.edit-container {
+    margin-top: 20px;
+    padding: 50px;
+    max-width: 1000px;
+    box-shadow: rgba(192, 189, 189, 0.096) 0px 0px 0px 2px, rgba(6, 24, 44, 0.23) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
-.edit-icon,
-.icon {
-    font-size: 24px;
-    color: #007bff;
-    /* Bootstrap primary color */
+.edit-Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-link {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-link Button {
+    text-decoration: none;
+    color: #173042;
 }
