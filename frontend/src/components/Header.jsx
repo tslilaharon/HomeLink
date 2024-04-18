@@ -38,7 +38,7 @@ const Header = () => {
                         </LinkContainer>
 
                         <LinkContainer to="/business-profile">
-                            <Nav.Link>profile</Nav.Link>
+                            <Nav.Link>Profile</Nav.Link>
                         </LinkContainer>
 
                     </Nav>
