@@ -15,50 +15,22 @@ export const getProperty = async (req, res, next) => {
 
 export const getProperties = async (req, res, next) => {
     try {
-        const limit = parseInt(req.query.limit) || 9;
-        const startIndex = parseInt(req.query.startIndex) || 0;
-        let offer = req.query.offer;
+        const { limit = 9, startIndex = 0, offer = 'false', furnished = 'false', parking = 'false', type = 'all', searchTerm = '', sort = 'createdAt', order = 'desc' } = req.query;
 
-        if (offer === undefined || offer === 'false') {
-            offer = { $in: [false, true] };
-        }
+        const queryFilter = {
+            offer: { $in: offer !== 'false' ? [true] : [true, false] },
+            furnished: { $in: furnished !== 'false' ? [true] : [true, false] },
+            parking: { $in: parking !== 'false' ? [true] : [true, false] },
+            type: { $in: type !== 'all' ? [type] : ['Apartment', 'Standalone Property', 'Guest House'] },
+            name: { $regex: searchTerm, $options: 'i' }
+        };
 
-        let furnished = req.query.furnished;
-
-        if (furnished === undefined || furnished === 'false') {
-            furnished = { $in: [false, true] };
-        }
-
-        let parking = req.query.parking;
-
-        if (parking === undefined || parking === 'false') {
-            parking = { $in: [false, true] };
-        }
-
-        let type = req.query.type;
-
-        if (type === undefined || type === 'all') {
-            type = { $in: ['funding', 'donation'] };
-        }
-
-        const searchTerm = req.query.searchTerm || '';
-
-        const sort = req.query.sort || 'createdAt';
-
-        const order = req.query.order || 'desc';
-
-        const properties = await Property.find({
-            name: { $regex: searchTerm, $options: 'i' },
-            offer,
-            furnished,
-            parking,
-            type,
-        })
+        const properties = await Property.find(queryFilter)
             .sort({ [sort]: order })
-            .limit(limit)
-            .skip(startIndex);
+            .limit(Number(limit))
+            .skip(Number(startIndex));
 
-        return res.status(200).json(properties);
+        res.status(200).json(properties);
     } catch (error) {
         next(error);
     }

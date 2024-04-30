@@ -135,6 +135,7 @@ a {
 .list-labels Button {
     margin: 5px;
 }
+
 /* property card */
 
 .container-propertycard {
@@ -167,3 +168,46 @@ a {
     text-decoration: none;
     color: #173042;
 }
+
+/* Search */
+
+.background-img {
+    width: 100%;
+    height: 40vh;
+    background-image: url('../CardImgOverlay.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.content-cust {
+    padding: 80px 80px;
+    color: white;
+}
+
+.content-cust h3 {
+    font-size: 2rem;
+}
+
+.content-cust p {
+    width: 50%;
+    font-size: 1rem;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.filter-container {
+    margin: 50px;
+    padding: 10px;
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+#dropdown-basic-button{
+    background-color: #fff;
+    border-color: #fff;
+    color: #173042}
