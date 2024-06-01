@@ -1,15 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import propertyRouter from './routes/property.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 
-dotenv.config();
+// המחרוזת להתחברות ל-MongoDB
+const mongoURI = 'mongodb+srv://tslilaharon1:0MWxhcPOT2ZhJCbC@home-link.4lwapet.mongodb.net/?retryWrites=true&w=majority&appName=home-link';
 
-mongoose.connect(process.env.MONGO).then(() => {
+mongoose.connect(mongoURI).then(() => {
     console.log('connected to MongoDB')
 }).catch((err) => {
     console.log('not connect to MongoDB')
