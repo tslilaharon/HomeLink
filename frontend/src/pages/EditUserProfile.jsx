@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { useState, useEffect } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import axiosInstance from "../../axiosConfig";
