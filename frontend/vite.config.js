@@ -16,6 +16,8 @@ export default defineConfig({
         secure: false, // הגדר ל-true אם יש לך תעודת SSL תקפה
       },
     },
+    build:{
+      outDir:"dist"
   },
   plugins: [react()],
 });
