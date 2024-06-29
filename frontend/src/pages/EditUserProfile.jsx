@@ -45,7 +45,7 @@ const EditProfile = () => {
     e.preventDefault();
     try {
       const response = await axiosInstance.put(
-        /api/user/update/${currentUser._id},
+        `/api/user/update/${currentUser._id}`,
         userData
       );
       console.log("Profile updated:", response.data);
