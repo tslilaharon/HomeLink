@@ -15,11 +15,11 @@ const Home = () => {
     const fetchProperties = async () => {
       try {
         const popularResponse = await axios.get(
-          "http://localhost:4000/api/property/get?limit=4&sort=Popularity&order=desc"
+          "https://homelink-nyna.onrender.com/api/property/get?limit=4&sort=Popularity&order=desc"
         );
         console.log("Popular Properties Response:", popularResponse.data);
         const recentResponse = await axios.get(
-          "http://localhost:4000/api/property/get?limit=4&sort=createdAt&order=desc"
+          "https://homelink-nyna.onrender.com/api/property/get?limit=4&sort=createdAt&order=desc"
         );
         console.log("Recent Properties Response:", recentResponse.data);
 
