@@ -11,10 +11,13 @@ export default defineConfig({
     },
     proxy: {
       "/api": {
-        target: "https://localhost:4000",
+        target: "https://homelink-nyna.onrender.com",
         changeOrigin: true,
         secure: false, // הגדר ל-true אם יש לך תעודת SSL תקפה
       },
+    },
+    build:{
+      outDir:"dist"
     },
   },
   plugins: [react()],

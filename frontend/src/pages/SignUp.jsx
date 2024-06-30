@@ -123,7 +123,7 @@ const SignUp = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:4000/api/auth/signup`,
+        `https://homelink-nyna.onrender.com/api/auth/signup`,
         { ...userData, userType },
         {
           headers: {
@@ -155,7 +155,7 @@ const SignUp = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:4000/api/property/create`,
+        `https://homelink-nyna.onrender.com/api/property/create`,
         { ...propertyData, userId }, // Add userId to property data
         {
           headers: {
@@ -194,7 +194,7 @@ const SignUp = () => {
       };
 
       const res = await axios.post(
-        `http://localhost:4000/api/tenant/create`,
+        `https://homelink-nyna.onrender.com/api/tenant/create`,
         tenantData,
         {
           headers: {

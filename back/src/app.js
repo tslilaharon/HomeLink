@@ -30,7 +30,7 @@ const app = express();
 
 // Configure CORS middleware
 const corsOptions = {
-  origin: "https://localhost:5173", // specify the origin explicitly
+  origin: "https://homelink-1.onrender.com", // specify the origin explicitly
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // allow credentials
   optionsSuccessStatus: 200,
@@ -42,7 +42,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.listen(4000, () => {
-  console.log("server is running on port 4000");
+  console.log("server is running on port 4000 ");
 });
 
 app.use("/api/user", userRouter);
