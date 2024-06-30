@@ -72,7 +72,7 @@ const PropertyCard = ({ property }) => {
   if (!property) {
     return null; // Return null if property is not defined
   }
-
+  console.log(property)
   return (
     <>
       <Card className="m-5" style={{ width: "18rem", minHeight: "400px" }}>
