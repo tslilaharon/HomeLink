@@ -30,7 +30,7 @@ const app = express();
 
 // Configure CORS middleware
 const corsOptions = {
-  origin: "https://localhost:5173", // specify the origin explicitly
+  origin: "https://homelink-1.onrender.com", // specify the origin explicitly
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // allow credentials
   optionsSuccessStatus: 200,
