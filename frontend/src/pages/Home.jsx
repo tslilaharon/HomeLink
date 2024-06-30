@@ -43,10 +43,10 @@ const Home = () => {
           <div className="content text-left m-3">
             <h2>Find A House</h2>
             <h2>That Suits You</h2>
-            <p>
+{/*             <p>
               Want to find a home? We are ready to help you find one that suits
               your lifestyle and needs.
-            </p>
+            </p> */}
             <Button variant="light">Get Started</Button>
           </div>
         </div>
