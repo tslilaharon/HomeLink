@@ -61,7 +61,7 @@ const EditBusinessProfile = () => {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`https://homelink-nyna.onrender.com/api/user/update/${currentUser._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const EditBusinessProfile = () => {
   const handleDeleteUser = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`https://homelink-nyna.onrender.com/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
@@ -124,7 +124,7 @@ const EditBusinessProfile = () => {
 
     try {
       dispatch(signOutUserStart())
-      const res = await fetch('/api/auth/signout');
+      const res = await fetch('https://homelink-nyna.onrender.com/api/auth/signout');
       const data = await res.json();
       localStorage.removeItem('persist:root')
       localStorage.removeItem('userId')
