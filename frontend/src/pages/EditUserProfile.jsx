@@ -156,8 +156,4 @@ const EditProfile = () => {
   );
 };
 
-<<<<<<< HEAD
 export default EditProfile;
-=======
-export default EditProfile;
->>>>>>> 6389cef0767dea8f6078003136ec63499be255e7
