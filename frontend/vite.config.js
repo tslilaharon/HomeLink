@@ -20,5 +20,6 @@ export default defineConfig({
       outDir:"dist"
     },
   },
+  base:"/",
   plugins: [react()],
 });
