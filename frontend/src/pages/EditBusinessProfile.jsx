@@ -104,6 +104,25 @@ const EditBusinessProfile = () => {
   const handleSignOut = async () => {
 
     try {
+      dispatch(signOutUserStart());
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+
+      localStorage.removeItem("persist:root"); // Delete persist:root from localStorage
+      localStorage.removeItem("userId"); // Delete userId from localStorage
+      dispatch(deleteUserSuccess(data));
+      navigate("/");
+      alert("You have successfully signed out.");
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+
+    try {
       dispatch(signOutUserStart())
       const res = await fetch('/api/auth/signout');
       const data = await res.json();
