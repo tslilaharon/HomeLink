@@ -79,14 +79,14 @@ const PropertyCard = ({ property }) => {
         <Card.Img
           variant="top"
           src={property.exteriorImage || ""}
-          alt={property.name || "Property Image"}
+          alt={property.title || "Property Image"}
           style={{
             minHeight: "200px",
             objectFit: "cover",
           }}
         />
         <Card.Body>
-          <Card.Title>{property.name || "Unnamed Property"}</Card.Title>
+          <Card.Title>{property.title || "Unnamed Property"}</Card.Title>
           <Card.Text>
             {property.description || "No description available"}
           </Card.Text>
@@ -98,7 +98,7 @@ const PropertyCard = ({ property }) => {
 
       <Modal show={showDetailsModal} onHide={handleCloseModals}>
         <Modal.Header closeButton>
-          <Modal.Title>{property.name || "Unnamed Property"}</Modal.Title>
+          <Modal.Title>{property.title || "Unnamed Property"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {loading ? (
