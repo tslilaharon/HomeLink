@@ -41,8 +41,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-app.listen(4000, () => {
-  console.log("server is running on port 4000");
+app.listen(https://homelink-nyna.onrender.com, () => {
+  console.log("server is running on port ");
 });
 
 app.use("/api/user", userRouter);
