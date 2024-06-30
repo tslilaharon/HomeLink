@@ -170,7 +170,7 @@ const Search = () => {
             <LiaFilterSolid /> Filter
           </h5>
           <DropdownButton id="dropdown-basic-button" title="Sort By">
-            <Dropdown.Item
+{/*             <Dropdown.Item
               onClick={() => handleSortChange("price-high-to-low")}
             >
               Price high to low
@@ -179,7 +179,7 @@ const Search = () => {
               onClick={() => handleSortChange("price-low-to-high")}
             >
               Price low to high
-            </Dropdown.Item>
+            </Dropdown.Item> */}
             <Dropdown.Item onClick={() => handleSortChange("latest")}>
               Latest
             </Dropdown.Item>
