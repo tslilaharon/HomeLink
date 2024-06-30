@@ -10,7 +10,7 @@ export default defineConfig({
       cert: fs.readFileSync(path.resolve(__dirname, "cert.pem")),
     },
     proxy: {
-      "/api": {
+      "/back": {
         target: "https://homelink-nyna.onrender.com",
         changeOrigin: true,
         secure: false, // הגדר ל-true אם יש לך תעודת SSL תקפה
