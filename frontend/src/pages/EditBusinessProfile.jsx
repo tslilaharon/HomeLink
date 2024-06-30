@@ -8,6 +8,7 @@ import {
   deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserStart
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import imgdefault from '../assets/default-user.png';
 
 const EditBusinessProfile = () => {
@@ -19,6 +20,7 @@ const EditBusinessProfile = () => {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
+  const navigate=useNavigate()
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -93,6 +95,7 @@ const EditBusinessProfile = () => {
         return;
       }
       dispatch(deleteUserSuccess(data));
+      navigate('/')
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
     }
@@ -104,11 +107,14 @@ const EditBusinessProfile = () => {
       dispatch(signOutUserStart())
       const res = await fetch('/api/auth/signout');
       const data = await res.json();
+      localStorage.removeItem('persist:root')
+      localStorage.removeItem('userId')
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));
         return;
       }
       dispatch(deleteUserSuccess(data));
+
     } catch (error) {
       dispatch(deleteUserFailure(data.message));
     }
