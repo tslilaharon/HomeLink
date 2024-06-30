@@ -183,7 +183,7 @@ const BusinessProfile = () => {
             <PropertyRowList
               key={property._id}
               property={property}
-              onEdit={() => handleEditProperty(property)}
+              onEdit={() => handleShowEditModal(property)}
               onDelete={() => handleDeleteProperty(property._id)}
             />
           ))}
