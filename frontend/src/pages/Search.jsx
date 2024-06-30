@@ -130,7 +130,7 @@ const Search = () => {
             {isLoggedIn ? (
               <>
                 <h3>Customized to Your Preferences</h3>
-                <p>
+{/*                 <p>
                   Discover properties that perfectly match your preferences,
                   <br />
                   Based on the settings you specified at the beginning of the
@@ -138,7 +138,7 @@ const Search = () => {
                   <br />
                   To make adjustments, simply click 'Edit Profile'.
                 </p>
-                <Button variant="light">Edit Profile</Button>
+                <Button variant="light">Edit Profile</Button> */}
               </>
             ) : (
               <>
