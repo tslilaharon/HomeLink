@@ -24,7 +24,7 @@ const UserProfile = () => {
     debugger;
     try {
       dispatch(signOutUserStart());
-      const res = await fetch("/api/auth/signout");
+      const res = await fetch("https://homelink-nyna.onrender.com/api/auth/signout");
       const data = await res.json();
 
       if (data.success === false) {
