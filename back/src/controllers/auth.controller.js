@@ -176,7 +176,7 @@ export const getUser = async (req, res, next) => {
 export const signOut = async (req, res, next) => {
   try {
     res.clearCookie("access_token");
-    res.status(200).json("User has been logged out!");
+    res.status(200).json(({message:"User has been logged out!"}));
   } catch (error) {
     console.error("Error during sign out:", error); // Logging the error
     next(error);
