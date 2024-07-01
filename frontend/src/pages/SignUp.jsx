@@ -368,7 +368,6 @@ const SignUp = () => {
               >
                 {loading ? "Loading..." : "Sign Up"}
               </Button>
-              <OAuth />
               <p>
                 Member?
                 <Link to="/sign-in"> Sign In</Link>

@@ -77,7 +77,6 @@ const SignIn = () => {
         <Button disabled={loading} className="m-3" variant="dark" type="submit">
           {loading ? "Loading..." : "Sign In"}
         </Button>
-        <OAuth />
         <p>
           Not a member?
           <Link to={"/sign-up"}>Sign Up</Link>
