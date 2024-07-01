@@ -25,13 +25,13 @@ const Search = () => {
       studio: false,
     },
     facilities: {
-      secureSpace: false,
-      parking: false,
-      balcony: false,
-      airConditioning: false,
-      disability: false,
-      elevator: false,
-      furnished: false,
+      SecureSpace: false,
+      Parking: false,
+      Balcony: false,
+      AirCondition: false,
+      Disability: false,
+      Elevator: false,
+      Furnished: false,
     },
     rooms: {
       min: "",
@@ -114,9 +114,7 @@ const Search = () => {
 
       const isFacilitiesMatch = Object.keys(facilities).every((facility) => {
         if (facilities[facility]) {
-          const modelFacility =
-            facility.charAt(0).toUpperCase() + facility.slice(1);
-          return property[modelFacility] === true;
+          return property[facility] === true;
         }
         return true;
       });
@@ -239,57 +237,57 @@ const Search = () => {
                 <Form.Check
                   type="checkbox"
                   label="Secure Space"
-                  id="secureSpace"
+                  id="SecureSpace"
                   className="mb-3"
-                  checked={filters.facilities.secureSpace}
+                  checked={filters.facilities.SecureSpace}
                   onChange={() => handleFacilityChange("SecureSpace")}
                 />
                 <Form.Check
                   type="checkbox"
                   label="Parking"
-                  id="parking"
+                  id="Parking"
                   className="mb-3"
-                  checked={filters.facilities.parking}
+                  checked={filters.facilities.Parking}
                   onChange={() => handleFacilityChange("Parking")}
                 />
                 <Form.Check
                   type="checkbox"
                   label="Balcony"
-                  id="balcony"
+                  id="Balcony"
                   className="mb-3"
-                  checked={filters.facilities.balcony}
+                  checked={filters.facilities.Balcony}
                   onChange={() => handleFacilityChange("Balcony")}
                 />
                 <Form.Check
                   type="checkbox"
-                  label="Air Condition"
-                  id="airConditioning"
+                  label="Air Conditioning"
+                  id="AirCondition"
                   className="mb-3"
-                  checked={filters.facilities.airConditioning}
+                  checked={filters.facilities.AirCondition}
                   onChange={() => handleFacilityChange("AirCondition")}
                 />
                 <Form.Check
                   type="checkbox"
                   label="Disability"
-                  id="disability"
+                  id="Disability"
                   className="mb-3"
-                  checked={filters.facilities.disability}
+                  checked={filters.facilities.Disability}
                   onChange={() => handleFacilityChange("Disability")}
                 />
                 <Form.Check
                   type="checkbox"
                   label="Elevator"
-                  id="elevator"
+                  id="Elevator"
                   className="mb-3"
-                  checked={filters.facilities.elevator}
+                  checked={filters.facilities.Elevator}
                   onChange={() => handleFacilityChange("Elevator")}
                 />
                 <Form.Check
                   type="checkbox"
                   label="Furnished"
-                  id="furnished"
+                  id="Furnished"
                   className="mb-3"
-                  checked={filters.facilities.furnished}
+                  checked={filters.facilities.Furnished}
                   onChange={() => handleFacilityChange("Furnished")}
                 />
                 <h5>Rooms</h5>

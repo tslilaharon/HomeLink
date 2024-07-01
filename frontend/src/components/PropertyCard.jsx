@@ -75,7 +75,7 @@ const PropertyCard = ({ property }) => {
   console.log(property)
   return (
     <>
-      <Card className="m-5" style={{ width: "18rem", minHeight: "400px" }}>
+      <Card className="m-3" style={{ width: "18rem", minHeight: "400px" }}>
         <Card.Img
           variant="top"
           src={property.exteriorImage || ""}
