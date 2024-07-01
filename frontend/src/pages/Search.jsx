@@ -327,7 +327,7 @@ const Search = () => {
               </Form>
             </Container>
           </Col>
-          <Col xs={12} md={8} lg={9}>
+          <Col xs={12} md={8}>
             <Row>
               {filteredProperties.map((property) => (
                 <Col key={property._id} xs={12} md={6} lg={4} className="mb-4">

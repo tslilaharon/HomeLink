@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 .signup-form {
     margin: 10%;
     padding: 5%;
@@ -207,7 +211,9 @@ a {
     width: 200px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-#dropdown-basic-button{
+
+#dropdown-basic-button {
     background-color: #fff;
     border-color: #fff;
-    color: #173042}
+    color: #173042
+}
