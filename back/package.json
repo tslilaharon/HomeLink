@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "main": "src/app.js",
   "type": "module",
-
-
   "scripts": {
-    "start": "nodemon src/app.js",
-    "dev": "nodemon src/app.js"
+    "postinstall": "chmod +x ./node_modules/.bin/nodemon",
+    "start": "npx nodemon src/app.js",
+    "dev": "npx nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
