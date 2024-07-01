@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PropertyRowList from "../components/PropertyRowList";
 import { useSelector } from "react-redux";
-import { Container, Button, Image, Modal, Badge } from "react-bootstrap";
+import { Container, Button, Badge, Modal, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaRegEdit, FaRegClock, FaRegEnvelope } from "react-icons/fa";
+import { FaRegEdit, FaRegEnvelope } from "react-icons/fa";
 import PropertyOwnerForm from "./PropertyOwnerForm";
 
 import "../assets/styles/Style.css";
@@ -15,6 +15,7 @@ const BusinessProfile = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showRequestsModal, setShowRequestsModal] = useState(false);
+  const [requests, setRequests] = useState([]); // state לבקשות
 
   const [formData, setFormData] = useState({
     title: "",
@@ -42,7 +43,7 @@ const BusinessProfile = () => {
     const fetchProperties = async () => {
       try {
         const res = await axios.get(
-          `https://homelink-nyna.onrender.com/api/property/user/${currentUser._id}`
+          http://localhost:4000/api/property/user/${currentUser._id}
         );
         setProperties(res.data);
       } catch (error) {
@@ -78,8 +79,38 @@ const BusinessProfile = () => {
       });
     }
   };
-  const handleShowRequestsModal = () => setShowRequestsModal(true);
+
+  // קריאה לשרת להבאת כל הבקשות של הנכסים של המשתמש
+  const handleShowRequestsModal = async () => {
+    try {
+      const res = await axios.get(
+        http://localhost:4000/api/request/user/${currentUser._id}/properties
+      );
+      setRequests(res.data);
+      setShowRequestsModal(true);
+    } catch (error) {
+      console.error("Error fetching requests:", error);
+    }
+  };
+
   const handleCloseRequestsModal = () => setShowRequestsModal(false);
+
+  const handleRequestStatusChange = async (requestId, status) => {
+    try {
+      const res = await axios.put(
+        http://localhost:4000/api/request/${requestId},
+        { status }
+      );
+      setRequests(
+        requests.map((request) =>
+          request._id === requestId ? res.data : request
+        )
+      );
+    } catch (error) {
+      console.error("Error updating request status:", error);
+    }
+  };
+
   const addInteriorImageField = () => {
     setFormData({
       ...formData,
@@ -102,7 +133,7 @@ const BusinessProfile = () => {
   const handleSubmitAdd = async () => {
     try {
       const res = await axios.post(
-        "https://homelink-nyna.onrender.com/api/property/create",
+        "http://localhost:4000/api/property/create",
         {
           ...formData,
           userId: currentUser._id,
@@ -114,9 +145,10 @@ const BusinessProfile = () => {
       console.error("Error creating property:", error);
     }
   };
+
   const handleDeleteProperty = async (propertyId) => {
     try {
-      await axios.delete(`/api/property/${propertyId}`);
+      await axios.delete(/api/property/${propertyId});
       setProperties(
         properties.filter((property) => property._id !== propertyId)
       );
@@ -124,10 +156,11 @@ const BusinessProfile = () => {
       console.error("Error deleting property:", error);
     }
   };
+
   const handleSubmitEdit = async () => {
     try {
       const res = await axios.put(
-        `https://homelink-nyna.onrender.com/api/property/update/${selectedPropertyId}`,
+        http://localhost:4000/api/property/update/${selectedPropertyId},
         formData
       );
       setProperties(
@@ -140,9 +173,11 @@ const BusinessProfile = () => {
       console.error("Error updating property:", error);
     }
   };
+
   const getInitial = (name) => {
     return name.charAt(0).toUpperCase();
   };
+
   return (
     <Container className="profile-container">
       <div className="profile-section">
@@ -185,6 +220,7 @@ const BusinessProfile = () => {
               property={property}
               onEdit={() => handleShowEditModal(property)}
               onDelete={() => handleDeleteProperty(property._id)}
+              onShowRequests={() => handleShowRequestsModal(property._id)} // הוספת קריאה למודאל הבקשות
             />
           ))}
         </div>
@@ -221,11 +257,49 @@ const BusinessProfile = () => {
           />
         </Modal.Body>
       </Modal>
+
       <Modal show={showRequestsModal} onHide={handleCloseRequestsModal}>
         <Modal.Header closeButton>
           <Modal.Title>Requests</Modal.Title>
         </Modal.Header>
-
+        <Modal.Body>
+          <ul className="list-group">
+            {requests.map((request) => (
+              <li key={request._id} className="list-group-item">
+                <div className="d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>Property:</strong> {request.property.title}
+                    <br />
+                    <strong>Sender:</strong> {request.sender.username} (
+                    {request.sender.email})<br />
+                    <strong>Recipient:</strong> {request.recipient.username} (
+                    {request.recipient.email})<br />
+                    <strong>Message:</strong> {request.message}
+                    <br />
+                    <strong>Start Date:</strong>{" "}
+                    {new Date(request.startDate).toLocaleDateString()}
+                    <br />
+                    <strong>End Date:</strong>{" "}
+                    {new Date(request.endDate).toLocaleDateString()}
+                    <br />
+                    <strong>Status:</strong>
+                  </div>
+                  <Form.Select
+                    value={request.status}
+                    onChange={(e) =>
+                      handleRequestStatusChange(request._id, e.target.value)
+                    }
+                    className="w-auto"
+                  >
+                    <option value="pending">Pending</option>
+                    <option value="accepted">Accepted</option>
+                    <option value="rejected">Rejected</option>
+                  </Form.Select>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseRequestsModal}>
             Close
