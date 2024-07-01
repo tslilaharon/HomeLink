@@ -39,7 +39,7 @@ const BusinessProfile = () => {
   });
   const [selectedPropertyId, setSelectedPropertyId] = useState(null);
 
- useEffect(() => {
+  useEffect(() => {
     const fetchProperties = async () => {
       try {
         const res = await axios.get(
@@ -52,8 +52,7 @@ const BusinessProfile = () => {
     };
 
     fetchProperties();
-}, [currentUser._id]);
-
+  }, [currentUser._id]);
 
   const handleShowAddModal = () => setShowAddModal(true);
   const handleCloseAddModal = () => setShowAddModal(false);
@@ -81,11 +80,10 @@ const BusinessProfile = () => {
     }
   };
 
-  // קריאה לשרת להבאת כל הבקשות של הנכסים של המשתמש
   const handleShowRequestsModal = async () => {
     try {
       const res = await axios.get(
-        https://homelink-nyna.onrender.com/api/request/user/${currentUser._id}/properties
+        `https://homelink-nyna.onrender.com/api/request/user/${currentUser._id}/properties`
       );
       setRequests(res.data);
       setShowRequestsModal(true);
@@ -99,7 +97,7 @@ const BusinessProfile = () => {
   const handleRequestStatusChange = async (requestId, status) => {
     try {
       const res = await axios.put(
-        https://homelink-nyna.onrender.com/api/request/${requestId},
+        `https://homelink-nyna.onrender.com/api/request/${requestId}`,
         { status }
       );
       setRequests(
@@ -149,7 +147,7 @@ const BusinessProfile = () => {
 
   const handleDeleteProperty = async (propertyId) => {
     try {
-      await axios.delete(/api/property/${propertyId});
+      await axios.delete(`https://homelink-nyna.onrender.com/api/property/${propertyId}`);
       setProperties(
         properties.filter((property) => property._id !== propertyId)
       );
@@ -161,7 +159,7 @@ const BusinessProfile = () => {
   const handleSubmitEdit = async () => {
     try {
       const res = await axios.put(
-        https://homelink-nyna.onrender.com/api/property/update/${selectedPropertyId},
+        `https://homelink-nyna.onrender.com/api/property/update/${selectedPropertyId}`,
         formData
       );
       setProperties(
