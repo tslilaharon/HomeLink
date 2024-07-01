@@ -30,6 +30,8 @@ const Search = () => {
       balcony: false,
       airConditioning: false,
       disability: false,
+      elevator: false,
+      furnished: false,
     },
     rooms: {
       min: "",
@@ -273,6 +275,22 @@ const Search = () => {
                   className="mb-3"
                   checked={filters.facilities.disability}
                   onChange={() => handleFacilityChange("disability")}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label="Elevator"
+                  id="elevator"
+                  className="mb-3"
+                  checked={filters.facilities.elevator}
+                  onChange={() => handleFacilityChange("elevator")}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label="Furnished"
+                  id="furnished"
+                  className="mb-3"
+                  checked={filters.facilities.furnished}
+                  onChange={() => handleFacilityChange("furnished")}
                 />
                 <h5>Rooms</h5>
                 <Form.Group controlId="rooms.min">
