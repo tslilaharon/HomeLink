@@ -12,7 +12,7 @@ import { LiaFilterSolid } from "react-icons/lia";
 import { useSelector } from "react-redux";
 import axiosInstance from "../../axiosConfig";
 import PropertyCard from "../components/PropertyCard";
-import "../assets/styles/Style.css"; // Make sure the path is correct according to your project structure
+import "../assets/styles/Style.css";
 
 const Search = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -29,6 +29,15 @@ const Search = () => {
       parking: false,
       balcony: false,
       airConditioning: false,
+      disability: false,
+    },
+    rooms: {
+      min: "",
+      max: "",
+    },
+    beds: {
+      min: "",
+      max: "",
     },
     sortBy: "",
   });
@@ -45,6 +54,7 @@ const Search = () => {
       },
     }));
   };
+
   const handleFacilityChange = (facility) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -62,6 +72,26 @@ const Search = () => {
     }));
   };
 
+  const handleRoomChange = (field, value) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      rooms: {
+        ...prevFilters.rooms,
+        [field]: value,
+      },
+    }));
+  };
+
+  const handleBedChange = (field, value) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      beds: {
+        ...prevFilters.beds,
+        [field]: value,
+      },
+    }));
+  };
+
   const fetchProperties = async () => {
     try {
       const response = await axiosInstance.get("/api/property/get");
@@ -73,15 +103,13 @@ const Search = () => {
   };
 
   const applyFilters = () => {
-    const { type, facilities, sortBy } = filters;
+    const { type, facilities, sortBy, rooms, beds } = filters;
 
     const filtered = allProperties.filter((property) => {
-      // Property Type Filter
       const isPropertyTypeMatch = Object.keys(type)
         .filter((key) => type[key])
         .some((key) => key.toLowerCase() === property.HouseType.toLowerCase());
 
-      // Facilities Filter
       const isFacilitiesMatch = Object.keys(facilities).every((facility) => {
         if (facilities[facility]) {
           const modelFacility =
@@ -91,19 +119,24 @@ const Search = () => {
         return true;
       });
 
+      const isRoomMatch =
+        (!rooms.min || property.NumberOfRooms >= rooms.min) &&
+        (!rooms.max || property.NumberOfRooms <= rooms.max);
+
+      const isBedMatch =
+        (!beds.min || property.NumberOfBeds >= beds.min) &&
+        (!beds.max || property.NumberOfBeds <= beds.max);
+
       return (
         (!Object.values(type).some(Boolean) || isPropertyTypeMatch) &&
-        isFacilitiesMatch
+        isFacilitiesMatch &&
+        isRoomMatch &&
+        isBedMatch
       );
     });
 
-    // Sorting
     const sorted = filtered.sort((a, b) => {
-      if (sortBy === "price-high-to-low") {
-        return b.price - a.price;
-      } else if (sortBy === "price-low-to-high") {
-        return a.price - b.price;
-      } else if (sortBy === "latest") {
+      if (sortBy === "latest") {
         return new Date(b.createdAt) - new Date(a.createdAt);
       } else if (sortBy === "oldest") {
         return new Date(a.createdAt) - new Date(b.createdAt);
@@ -130,15 +163,6 @@ const Search = () => {
             {isLoggedIn ? (
               <>
                 <h3>Customized to Your Preferences</h3>
-{/*                 <p>
-                  Discover properties that perfectly match your preferences,
-                  <br />
-                  Based on the settings you specified at the beginning of the
-                  process.
-                  <br />
-                  To make adjustments, simply click 'Edit Profile'.
-                </p>
-                <Button variant="light">Edit Profile</Button> */}
               </>
             ) : (
               <>
@@ -170,16 +194,6 @@ const Search = () => {
             <LiaFilterSolid /> Filter
           </h5>
           <DropdownButton id="dropdown-basic-button" title="Sort By">
-{/*             <Dropdown.Item
-              onClick={() => handleSortChange("price-high-to-low")}
-            >
-              Price high to low
-            </Dropdown.Item>
-            <Dropdown.Item
-              onClick={() => handleSortChange("price-low-to-high")}
-            >
-              Price low to high
-            </Dropdown.Item> */}
             <Dropdown.Item onClick={() => handleSortChange("latest")}>
               Latest
             </Dropdown.Item>
@@ -252,6 +266,48 @@ const Search = () => {
                   checked={filters.facilities.airConditioning}
                   onChange={() => handleFacilityChange("airConditioning")}
                 />
+                <Form.Check
+                  type="checkbox"
+                  label="Disability"
+                  id="disability"
+                  className="mb-3"
+                  checked={filters.facilities.disability}
+                  onChange={() => handleFacilityChange("disability")}
+                />
+                <h5>Rooms</h5>
+                <Form.Group controlId="rooms.min">
+                  <Form.Label>Min Rooms</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={filters.rooms.min}
+                    onChange={(e) => handleRoomChange("min", e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group controlId="rooms.max">
+                  <Form.Label>Max Rooms</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={filters.rooms.max}
+                    onChange={(e) => handleRoomChange("max", e.target.value)}
+                  />
+                </Form.Group>
+                <h5>Beds</h5>
+                <Form.Group controlId="beds.min">
+                  <Form.Label>Min Beds</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={filters.beds.min}
+                    onChange={(e) => handleBedChange("min", e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group controlId="beds.max">
+                  <Form.Label>Max Beds</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={filters.beds.max}
+                    onChange={(e) => handleBedChange("max", e.target.value)}
+                  />
+                </Form.Group>
               </Form>
             </Container>
           </Col>
