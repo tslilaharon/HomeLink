@@ -147,7 +147,6 @@ const BusinessProfile = () => {
 
   const handleDeleteProperty = async (propertyId) => {
     try {
-      console.log("id: "+ propertyId)
       await axios.delete(`https://homelink-nyna.onrender.com/api/property/delete/${propertyId}`);
       setProperties(
         properties.filter((property) => property._id !== propertyId)
