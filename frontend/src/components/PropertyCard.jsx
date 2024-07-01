@@ -116,9 +116,6 @@ const PropertyCard = ({ property }) => {
                 }` || "No address available"}
               </p>
               <p>
-                <strong>Bathrooms:</strong> {property.bathrooms}
-              </p>
-              <p>
                 <strong>Bedrooms:</strong> {property.NumberOfRooms}
               </p>
               <p>
