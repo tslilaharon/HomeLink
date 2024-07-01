@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "../assets/styles/Style.css";
-import OAuth from "../components/OAuth";
 import axios from "axios";
 import UserTypeSelection from "../components/UserTypeSelection"; // Import the new component
 import PropertyOwnerForm from "./PropertyOwnerForm"; // Import PropertyOwnerForm component

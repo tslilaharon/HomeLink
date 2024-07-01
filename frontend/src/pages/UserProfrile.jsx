@@ -1,7 +1,6 @@
 import React from "react";
-import { Container, Button, Image } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import PropertyRowList from "../components/PropertyRowList";
 import { FaRegEdit, FaRegClock, FaRegEnvelope } from "react-icons/fa";
 
 import "../assets/styles/Style.css";

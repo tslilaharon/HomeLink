@@ -5,7 +5,6 @@ import {
   Image,
   Nav,
   Navbar,
-  NavDropdown,
   NavbarText,
   Badge,
 } from "react-bootstrap";

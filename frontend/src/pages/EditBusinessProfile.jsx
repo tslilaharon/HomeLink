@@ -9,7 +9,6 @@ import {
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import imgdefault from '../assets/default-user.png';
 
 const EditBusinessProfile = () => {
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import PropertyRowList from "../components/PropertyRowList";
 import { useDispatch } from "react-redux";
 import { FaRegEdit, FaRegClock, FaRegEnvelope } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";

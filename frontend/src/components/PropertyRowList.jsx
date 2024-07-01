@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Image, Modal } from "react-bootstrap";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import "../assets/styles/Style.css";
 
 const PropertyRowList = ({ property, onEdit, onDelete }) => {

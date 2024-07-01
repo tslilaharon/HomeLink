@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, CardGroup, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import PropertyCard from "../components/PropertyCard";
 import axios from "axios";
 import "../assets/styles/Style.css";
