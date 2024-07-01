@@ -173,9 +173,9 @@ const Search = () => {
                   Please sign in to personalize your experience and save
                   preferences.
                 </p>
-                <Button variant="light" href="/signin">
+{/*                 <Button variant="light" href="/signin">
                   Sign In
-                </Button>
+                </Button> */}
               </>
             )}
           </div>
