@@ -25,6 +25,23 @@ export const getPropertyById = async (req, res, next) => {
   }
 };
 
+export const deleteProperty = async (req, res, next) => {
+  try {
+    console.log(Attempting to delete property with ID: ${req.params.id});
+    const property = await PropertyOwner.findByIdAndDelete(req.params.id);
+    if (!property) {
+      console.log("Property not found!");
+      return next(errorHandler(404, "Property not found!"));
+    }
+
+    console.log("Property deleted successfully!");
+    res.status(200).json({ message: "Property deleted successfully!" });
+  } catch (error) {
+    console.error("Error deleting property:", error);
+    next(error);
+  }
+};
+
 export const getProperties = async (req, res, next) => {
   try {
     console.log("Fetching properties...");
