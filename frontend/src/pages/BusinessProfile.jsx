@@ -39,11 +39,11 @@ const BusinessProfile = () => {
   });
   const [selectedPropertyId, setSelectedPropertyId] = useState(null);
 
-  useEffect(() => {
+ useEffect(() => {
     const fetchProperties = async () => {
       try {
         const res = await axios.get(
-          https://homelink-nyna.onrender.com/api/property/user/${currentUser._id}
+          `https://homelink-nyna.onrender.com/api/property/user/${currentUser._id}`
         );
         setProperties(res.data);
       } catch (error) {
@@ -52,7 +52,8 @@ const BusinessProfile = () => {
     };
 
     fetchProperties();
-  }, [currentUser]);
+}, [currentUser._id]);
+
 
   const handleShowAddModal = () => setShowAddModal(true);
   const handleCloseAddModal = () => setShowAddModal(false);
