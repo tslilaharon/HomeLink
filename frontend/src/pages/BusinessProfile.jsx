@@ -43,7 +43,7 @@ const BusinessProfile = () => {
     const fetchProperties = async () => {
       try {
         const res = await axios.get(
-          http://localhost:4000/api/property/user/${currentUser._id}
+          https://homelink-nyna.onrender.com/api/property/user/${currentUser._id}
         );
         setProperties(res.data);
       } catch (error) {
@@ -84,7 +84,7 @@ const BusinessProfile = () => {
   const handleShowRequestsModal = async () => {
     try {
       const res = await axios.get(
-        http://localhost:4000/api/request/user/${currentUser._id}/properties
+        https://homelink-nyna.onrender.com/api/request/user/${currentUser._id}/properties
       );
       setRequests(res.data);
       setShowRequestsModal(true);
@@ -98,7 +98,7 @@ const BusinessProfile = () => {
   const handleRequestStatusChange = async (requestId, status) => {
     try {
       const res = await axios.put(
-        http://localhost:4000/api/request/${requestId},
+        https://homelink-nyna.onrender.com/api/request/${requestId},
         { status }
       );
       setRequests(
@@ -133,7 +133,7 @@ const BusinessProfile = () => {
   const handleSubmitAdd = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/property/create",
+        "https://homelink-nyna.onrender.com/api/property/create",
         {
           ...formData,
           userId: currentUser._id,
@@ -160,7 +160,7 @@ const BusinessProfile = () => {
   const handleSubmitEdit = async () => {
     try {
       const res = await axios.put(
-        http://localhost:4000/api/property/update/${selectedPropertyId},
+        https://homelink-nyna.onrender.com/api/property/update/${selectedPropertyId},
         formData
       );
       setProperties(
