@@ -5,6 +5,8 @@ import {
   updateRequest,
   deleteRequest,
   getRequestsByUser,
+  getRequestsByProperty,
+  getRequestsByUserProperties, // הוסף את הפונקציה החדשה
 } from "../controllers/request.controller.js";
 
 const router = express.Router();
@@ -24,4 +26,8 @@ router.delete("/:id", deleteRequest);
 // Route to get requests by user ID
 router.get("/user/:userId", getRequestsByUser);
 
-export default router;
+router.get("/property/:propertyId", getRequestsByProperty); // Add the new route
+
+router.get("/user/:userId/properties", getRequestsByUserProperties);
+
+export default router;
