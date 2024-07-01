@@ -6,6 +6,7 @@ import {
   getPropertiesByUserId,
   updateProperty,
   getPropertyById,
+  deleteProperty,
 } from "../controllers/property.controller.js";
 
 const router = express.Router();
@@ -17,5 +18,6 @@ router.get("/get", getProperties);
 router.get("/user/:userId", getPropertiesByUserId);
 router.post("/create", createProperty);
 router.put("/update/:id", updateProperty);
+router.delete("/delete/:id", deleteProperty);
 
-export default router;
+export default router;
