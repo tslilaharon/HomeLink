@@ -238,11 +238,11 @@ const Search = () => {
                 <h5>Facilities</h5>
                 <Form.Check
                   type="checkbox"
-                  label="Secure space"
+                  label="Secure Space"
                   id="secureSpace"
                   className="mb-3"
                   checked={filters.facilities.secureSpace}
-                  onChange={() => handleFacilityChange("secureSpace")}
+                  onChange={() => handleFacilityChange("SecureSpace")}
                 />
                 <Form.Check
                   type="checkbox"
@@ -250,7 +250,7 @@ const Search = () => {
                   id="parking"
                   className="mb-3"
                   checked={filters.facilities.parking}
-                  onChange={() => handleFacilityChange("parking")}
+                  onChange={() => handleFacilityChange("Parking")}
                 />
                 <Form.Check
                   type="checkbox"
@@ -258,15 +258,15 @@ const Search = () => {
                   id="balcony"
                   className="mb-3"
                   checked={filters.facilities.balcony}
-                  onChange={() => handleFacilityChange("balcony")}
+                  onChange={() => handleFacilityChange("Balcony")}
                 />
                 <Form.Check
                   type="checkbox"
-                  label="Air conditioning"
+                  label="Air Condition"
                   id="airConditioning"
                   className="mb-3"
                   checked={filters.facilities.airConditioning}
-                  onChange={() => handleFacilityChange("airConditioning")}
+                  onChange={() => handleFacilityChange("AirCondition")}
                 />
                 <Form.Check
                   type="checkbox"
@@ -274,7 +274,7 @@ const Search = () => {
                   id="disability"
                   className="mb-3"
                   checked={filters.facilities.disability}
-                  onChange={() => handleFacilityChange("disability")}
+                  onChange={() => handleFacilityChange("Disability")}
                 />
                 <Form.Check
                   type="checkbox"
@@ -282,7 +282,7 @@ const Search = () => {
                   id="elevator"
                   className="mb-3"
                   checked={filters.facilities.elevator}
-                  onChange={() => handleFacilityChange("elevator")}
+                  onChange={() => handleFacilityChange("Elevator")}
                 />
                 <Form.Check
                   type="checkbox"
@@ -290,7 +290,7 @@ const Search = () => {
                   id="furnished"
                   className="mb-3"
                   checked={filters.facilities.furnished}
-                  onChange={() => handleFacilityChange("furnished")}
+                  onChange={() => handleFacilityChange("Furnished")}
                 />
                 <h5>Rooms</h5>
                 <Form.Group controlId="rooms.min">
