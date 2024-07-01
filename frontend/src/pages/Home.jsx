@@ -23,8 +23,8 @@ const Home = () => {
         );
         console.log("Recent Properties Response:", recentResponse.data);
 
-        setPopularProperties(popularResponse.data);
-        setRecentProperties(recentResponse.data);
+        setPopularProperties(popularResponse.data.slice(0,4));
+        setRecentProperties(recentResponse.data.slice(0,4));
 
         setLoading(false);
       } catch (err) {
