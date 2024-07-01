@@ -25,11 +25,7 @@ export const App = () => {
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/business-profile" element={<BusinessProfile />} />
-
-          <Route
-            path="/edit-business-profile"
-            element={<EditBusinessProfile />}
-          />
+          <Route path="/edit-business-profile" element={<EditBusinessProfile />}/>
         </Route>
       </Routes>
     </BrowserRouter>
