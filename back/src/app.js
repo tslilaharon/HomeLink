@@ -54,8 +54,9 @@ app.use("/api/request", requestRouter); // Add request routes
 // Serving static files from frontend/dist
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
+// Catch-all handler to return index.html for any other requests
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
 });
 
 app.use((err, req, res, next) => {
