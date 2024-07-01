@@ -45,7 +45,7 @@ export const getProperties = async (req, res, next) => {
   try {
     console.log("Fetching properties...");
 
-    const properties = await PropertyOwner.find().limit(10); // Limit to 10 for testing purposes
+    const properties = await PropertyOwner.find(); 
 
     console.log("Properties fetched:", properties);
 
