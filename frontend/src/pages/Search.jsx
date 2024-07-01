@@ -206,8 +206,8 @@ const Search = () => {
         </Container>
       </section>
       <section>
-        <Row>
-          <Col xs={12} md={3} lg={2} className="filter-col">
+        <Row noGutters>
+          <Col xs={12} md={2} className="filter-col">
             <Container className="filter-container">
               <Form>
                 <h5>Property Type</h5>
@@ -329,10 +329,10 @@ const Search = () => {
               </Form>
             </Container>
           </Col>
-          <Col xs={12} md={9} lg={10}>
-            <Row>
+          <Col xs={12} md={10}>
+            <Row noGutters>
               {filteredProperties.map((property) => (
-                <Col key={property._id} xs={12} sm={6} md={4} className="mb-4">
+                <Col key={property._id} xs={12} md={6} lg={4} className="mb-4">
                   <PropertyCard property={property} />
                 </Col>
               ))}
