@@ -188,6 +188,8 @@ const Search = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            maxWidth: "100%",
+            margin: "0 auto",
           }}
         >
           <h5>
@@ -205,7 +207,7 @@ const Search = () => {
       </section>
       <section>
         <Row>
-          <Col xs={12} md={4} lg={3}>
+          <Col xs={12} md={3} lg={2} className="filter-col">
             <Container className="filter-container">
               <Form>
                 <h5>Property Type</h5>
@@ -327,10 +329,10 @@ const Search = () => {
               </Form>
             </Container>
           </Col>
-          <Col xs={12} md={8} lg={9}>
+          <Col xs={12} md={9} lg={10}>
             <Row>
               {filteredProperties.map((property) => (
-                <Col key={property._id} xs={12} md={6} lg={4} className="mb-4">
+                <Col key={property._id} xs={12} sm={6} md={4} className="mb-4">
                   <PropertyCard property={property} />
                 </Col>
               ))}

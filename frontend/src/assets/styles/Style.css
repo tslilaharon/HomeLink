@@ -202,8 +202,8 @@ a {
 }
 
 .filter-container {
-    margin: 50px;
-    padding: 10px;
+    margin-left: 50px;
+    padding: 15px;
     width: 200px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
